@@ -40,7 +40,7 @@ export const Users = () => {
   }
   const [users, setUsers] = useState<Array<IUser>>([]);
   useEffect(() => {
-    dispatch(getUsers()).then((action: any) => {
+    dispatch(getUsers()).then((action: PayloadAction<any>) => {
       setUsers(action.payload.data);
     });
   }, []);
