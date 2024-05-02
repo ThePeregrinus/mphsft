@@ -1,8 +1,6 @@
-import { Grid } from '@mui/material';
 import { RootState } from '../../store/store';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import Paper from '@mui/material/Paper';
 import type { BoxProps } from '@mui/material/Box';
 import Box from '@mui/material/Box';
 import { getUsers } from '../../store/reducers/auth';
@@ -10,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { AppDispatch } from '../../store/store';
 import { useState } from 'react';
-import { retry } from '@reduxjs/toolkit/query';
+import type { PayloadAction } from '@reduxjs/toolkit';
 
 function Item(props: BoxProps) {
   const { sx, ...other } = props;
@@ -42,7 +40,7 @@ export const Users = () => {
   }
   const [users, setUsers] = useState<Array<IUser>>([]);
   useEffect(() => {
-    dispatch(getUsers()).then((action) => {
+    dispatch(getUsers()).then((action: any) => {
       setUsers(action.payload.data);
     });
   }, []);
