@@ -64,7 +64,6 @@ export const UpdateUser = () => {
             id='username'
             label='User name'
             name='username'
-            autoFocus
           />
           <TextField
             onChange={(e) => {
